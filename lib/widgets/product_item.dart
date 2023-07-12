@@ -8,6 +8,8 @@ import '../providers/cart.dart';
 import 'package:provider/provider.dart';
 
 class ProductItem extends StatelessWidget {
+  const ProductItem({super.key});
+
   // final String id;
   // final String title;
   // final String imageUrl;
@@ -39,8 +41,9 @@ class ProductItem extends StatelessWidget {
                 product.toggleFavourite(authData.token, authData.userId);
               },
               icon: Icon(
-                  product.isFavourite ? Icons.favorite : Icons.favorite_border),
-              color: Theme.of(context).accentColor,
+                product.isFavourite ? Icons.favorite : Icons.favorite_border,
+                color: Colors.red,
+              ),
             ),
           ),
           title: Text(
@@ -48,7 +51,7 @@ class ProductItem extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           trailing: IconButton(
-            color: Theme.of(context).accentColor,
+            color: Colors.red,
             onPressed: () {
               cart.addItem(product.id.toString(), product.price, product.title);
               ScaffoldMessenger.of(context).showSnackBar(

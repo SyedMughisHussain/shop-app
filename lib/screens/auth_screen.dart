@@ -45,7 +45,7 @@ class AuthScreen extends StatelessWidget {
                     child: Container(
                       margin: const EdgeInsets.only(bottom: 20.0),
                       padding: const EdgeInsets.symmetric(
-                          vertical: 8.0, horizontal: 94.0),
+                          vertical: 8.0, horizontal: 64.0),
                       transform: Matrix4.rotationZ(-8 * pi / 180)
                         ..translate(-10.0),
                       // ..translate(-10.0),
@@ -220,7 +220,7 @@ class _AuthCardState extends State<AuthCard>
         constraints:
             BoxConstraints(minHeight: _authMode == AuthMode.signUp ? 320 : 260),
         width: deviceSize.width * 0.75,
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
@@ -295,6 +295,9 @@ class _AuthCardState extends State<AuthCard>
                     child:
                         Text(_authMode == AuthMode.login ? 'LOGIN' : 'SIGN UP'),
                   ),
+                Text(_authMode == AuthMode.login
+                    ? 'Don\'t have an account?'
+                    : 'Already have an account'),
                 TextButton(
                   onPressed: _switchAuthMode,
                   child: Text(
